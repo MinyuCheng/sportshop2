@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { StoreComponent } from "./store/store.component";
+
 @Injectable()
 export class StoreFirstGuard {
   private firstNavigation = true;
