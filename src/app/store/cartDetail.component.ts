@@ -1,3 +1,8 @@
 import { Component } from "@angular/core";
-@Component({ template: `<h3>Cart Detail Component</h3>` })
-export class CartDetailComponent {}
+import { Cart } from "../model/cart.model";
+@Component({
+  templateUrl: "cartDetail.component.html",
+})
+export class CartDetailComponent {
+  constructor(public cart: Cart) {}
+}
