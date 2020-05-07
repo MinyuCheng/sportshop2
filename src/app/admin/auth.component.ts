@@ -4,16 +4,14 @@ import { NgForm } from "@angular/forms";
 //import { AuthService } from '../model/auth.service'
 
 @Component({
-  templateUrl: "admin.component.html",
+  templateUrl: "auth.component.html",
 })
-export class AdminComponent {}
-
 export class AuthComponent {
   public username: string;
   public password: string;
   public errorMessage: string;
 
-  constructor(private router: Router, private auth: AuthService) {}
+  //constructor(private router: Router, private auth: AuthService) {}
 
   authenticate(form: NgForm) {
     if (form.valid) {
