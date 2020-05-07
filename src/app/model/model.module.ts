@@ -13,7 +13,7 @@ import { AuthService } from "./auth.service";
 
 // make its classes/services available to other modules
 
-@@NgModule({
+@NgModule({
   imports: [HttpClientModule],
   providers: [
     ProductRepository,
@@ -23,6 +23,6 @@ import { AuthService } from "./auth.service";
     { provide: StaticDataSource, useClass: RestDataSource },
     RestDataSource,
     AuthService,
-],})
+  ],
+})
 export class ModelModule {}
-
