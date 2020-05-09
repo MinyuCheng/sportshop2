@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, Input, NgModule } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
 import { Cart } from "../model/cart.model";
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "store",
@@ -12,7 +13,7 @@ export class StoreComponent {
   public selectedCategory = null;
   public productsPerPage = 4;
   public selectedPage = 1;
-
+  searchTerm: string;
   constructor(
     private repository: ProductRepository,
     private cart: Cart,
