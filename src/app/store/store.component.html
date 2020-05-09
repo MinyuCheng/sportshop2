@@ -2,12 +2,8 @@
   <div class="row">
     <div class="col bg-dark text-white">
       <a class="navbar-brand">SPORTS STORE</a>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="search products"
-        [{ngModel}]="searchTerm"
-      />
+      <input placeholder="search products"
+      [(ngModel)]="searchText" />
       <button type="submit" class="btn btn-primary">Submit</button>
       <cart-summary></cart-summary>
     </div>
@@ -37,14 +33,7 @@
 
     <div class="col-9 p-2">
       <div
-        *ngFor="let product of products | productFilter: searchTerm"
-        class="card m-1 p-1 bg-light"
-      >
-        <div (click)="onClick(product.name)" class="pointerCursor">
-          <app-display-product [product]="products"></app-display-product>
-        </div>
-      </div>
-
+        *ngFor="let product of products" class="card m-1 p-1 bg-light"></div>
       <h4>
         {{ product.name }}
         <span class="badge badge-pill badge-primary float-right">
