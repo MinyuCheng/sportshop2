@@ -1,10 +1,8 @@
-import { Component, OnInit, Input, NgModule } from "@angular/core";
+import { Component } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
 import { Cart } from "../model/cart.model";
 import { Router } from "@angular/router";
-//import { Observable } from "rxjs";
-//import { Pipe, PipeTransform } from "@angular/core";
 
 @Component({
   selector: "store",
@@ -23,12 +21,9 @@ export class StoreComponent {
 
   get products(): Product[] {
     let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    return (
-      this.repository
-        .getProducts(this.selectedCategory)
-        //.filter(this.searchText)
-        .slice(pageIndex, pageIndex + this.productsPerPage)
-    );
+    return this.repository
+      .getProducts(this.selectedCategory)
+      .slice(pageIndex, pageIndex + this.productsPerPage);
   }
 
   get categories(): string[] {
@@ -37,7 +32,6 @@ export class StoreComponent {
 
   changeCategory(newCategory?: string) {
     this.selectedCategory = newCategory;
-    this.changePage(1);
   }
 
   changePage(newPage: number) {
@@ -56,6 +50,7 @@ export class StoreComponent {
     const pageNumbers = Array(pageCount)
       .fill(0)
       .map((x, i) => i + 1);
+
     return pageNumbers;
   }
 
