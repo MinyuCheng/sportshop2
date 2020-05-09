@@ -27,10 +27,6 @@
         Admin
       </button>
     </div>
-    <table
-      class="table"
-      *ngIf="(products | filter: searchText).length > 0; else noResults"
-    ></table>
     <div class="col-9 p-2">
       <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
         <h4>
