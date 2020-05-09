@@ -4,6 +4,7 @@ import { ProductRepository } from "../model/product.repository";
 import { Cart } from "../model/cart.model";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Component({
   selector: "store",
@@ -58,5 +59,27 @@ export class StoreComponent {
   addProductToCart(product: Product) {
     this.cart.addLine(product);
     this.router.navigateByUrl("/cart");
+  }
+}
+
+Pipe({
+  name: "filter",
+});
+
+export class ProdcutFilterPipe implements PipeTransform {
+  transform(Products: Product[], searchTerm: string): Product[] {
+    if (!Products) {
+      return [];
+    }
+    if (!searchTerm) {
+      return Products;
+    }
+    searchTerm = searchTerm.toLowerCase();
+    return Products.filter((Products) => {
+      return Products.toLocalLowerCase().includes(searchTerm);
+    });
+
+    //constructor() {}
+    //ngOnInit() {},
   }
 }
